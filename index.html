@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+Disclamer
+=========
+
+* Not an expert in the field of ML
+* Lecture may contain minor issue
+* Use only as a starting guidance
+
+---
+
+About and plan
+==============
+
+* https://github.com/koder-ua/ML-intro
+* Definitions
+* Background, foundations and a bit of philosophy
+* 'Basic' methods overview: KNN/LR/Tree/SVM
+* Ensembling
+* xNN (x != K)
+* Current application and future
+* Sources
+
+---
+
+ML definition
+=============
+
+* Ability to automatically adapt universal algorithms for concrete task
+* ML 0.5
+* ML 1.0
+
+---
+
+ML applications
+===============
+
+* Autopilots
+* Medical diagnosis
+* Substances properties prediction
+* Crime detection on video
+* ....
+
+---
+
+Game over
+=========
+
+.center[![](images/game_over.jpg)]
+
+
+---
+
+.center[![](images/alpha_go_zero_sm.gif)]
+
+---
+
+ML types
+========
+
+* Supervised
+* Unsupervised
+* Reinforcement
+
+---
+
+Correlation and causation
+=========================
+
+* Can we predict football game result having only players t-short colors?
+
+---
+
+.center[![](images/cargocult.jpg)]
+
+---
+
+.center[![](images/Alcohol-consumption.jpg)]
+
+---
+
+## How many correlators you need to change a light bulb?
+
+##Incorrect question - correlators can't change anything.
+
+---
+
+#1, 2, 3, ?
+
+* 42
+* How to discriminate models?
+
+---
+
+Supervised ML task
+==================
+
+$$ y = F(x_1, x_2, ...., x_n) $$
+
+* Space of pairs {y, X}
+
+---
+
+Buzzwords
+=========
+
+* Classification and extra(inter)polation
+* Loss function
+* Training/test/validation data, hyperparameters
+
+---
+
+Model error
+===========
+
+Error =
+
+* Examples_Bias(== bad examples)
+* +Model_Bias(== model not flexible enought)
+* +Model_Overfitting(== model too flexible or too few examples)
+
+---
+
+K Nearest Neighbors
+===================
+
+.center[![](images/knn_15.png)]
+
+---
+
+KNN-1
+=====
+
+.center[![](images/knn_1.png)]
+
+---
+
+Nearest Neighbors
+=================
+
+    * Too much space
+    * Too slow to predict
+    ....
+
+---
+
+Linear/logistic regression
+==========================
+
+.center[Hight bias / low overfitting / easy to interpret]
+
+`\(y = \vec{w} * \vec{x} + b\)`
+
+`\(y = x_1 * w_1 + x_2 * w_2 + ... + x_n * w_n + b \)`
+
+`\(P(y) = \sigma(y) = \dfrac{1}{1 + e^{-y}} \)`
+
+
+.center[![](images/lr_boundary_linear_sm.png)]
+
+---
+
+2D Feature space
+================
+
+.center[![](images/lr_boundary_linear_3d.png)]
+
+---
+
+Optimal coefficients
+====================
+
+`\(l = Loss(F(\vec{w}, b, \vec{x_i}), y_i) \)`
+
+`\( \begin{cases} \dfrac{dl}{d\vec{w}} = 0, \\
+\dfrac{dl}{db} = 0;
+\end{cases}\)`
+
+---
+
+.center[![](images/lr_boundary_fail_sm.png)]
+
+---
+
+.center[![](images/xor_fail_lg.png)]
+
+---
+
+Feature engineering
+===================
+
+`\(x_3 = x_1^2 + x_2^2  \quad \quad \quad x_3 = (x_1 - 0.5) * (x_2 - 0.5) \)`
+
+.center[![](images/data_2d_to_3d_sm.png)]
+
+---
+
+.center[![](images/data_2d_to_3d_hyperplane_sm.png)]
+
+---
+
+.center[More features => flexible model => overfitting]
+
+---
+
+Decision trees
+==============
+
+Low bias / Hight overfitting / Usually hard to interpret
+
+Expert systems
+
+.center[![](images/dtree_sm.jpeg)]
+
+---
+
+.center[![](images/dtree_fail_sm.png)]
+
+---
+
+Support vector machine (SVM)
+============================
+
+Close to LG.
+
+* Discriminating surface is selected only on small subset of examples
+* Kernel trick
+
+.center[![](images/svm.jpg)]
+
+---
+
+NN vs SVM vs RBD SVM vs Gaussian vs Tree
+========================================
+
+.center[![](images/classifier_comparison_1pt.png)]
+
+---
+
+Many left unmentioned
+=====================
+
+* EM, Bayesian machine learning, ...
+
+---
+Ensembling
+==========
+Average of independent votes are very strong estimation
+
+---
+
+Bagging
+=======
+
+* Train many simple models on subsets of examples
+* Take average from results
+* Almost no overfitting, awfully interpretable
+* Random forest
+
+---
+
+Boosting
+========
+
+* Train first simple model
+* Train each next model to fix misclassification of current ensemble
+* Add new model to ensemble, goto 1
+* More prone to overfitting, than bagging
+
+---
+
+Stacking
+========
+
+* Train many simple models
+* Train one more model on top of them
+
+---
+
+Stacking as a way to build complex function from simple
+
+---
+
+History of neuron networks
+==========================
+
+.center[![](images/rosenblatt.jpg)]
+
+---
+
+Perceptron
+==========
+
+.center[![](images/perceptron.png)]
+
+---
+
+XOR issue. First AI "winter"
+============================
+
+.center[![](images/minski_xor_sm.png)]
+
+---
+
+XOR solved, backprop
+====================
+
+* Use sigmoid instead of step-func
+
+.center[![](images/nn_xor_solution_sm.jpg)]
+
+---
+
+MLP
+===
+
+.center[![](images/mlp_sm.jpg)]
+
+---
+
+MLP classification boundary
+===========================
+
+.center[![](images/mlp_geom_sm.jpg)]
+
+---
+
+* Fail on Japan 5th Jen computer
+* Second AI winter
+
+---
+
+## Don't waste you force, just take a large hammer
+
+.center[![](images/volta.jpg)]
+
+---
+
+## Now lets fix overfitting
+
+.center[![](images/chinese-workers-1.jpg)]
+
+---
+
+## Now lets fix overfitting
+
+.center[![](images/chinese-workers-1.jpg)]
+
+---
+
+Alexnet
+=======
+
+* 16.4% top 5 errors on imagenet (previous was 25.8%)
+
+.center[![](images/alexnet.png)]
+
+---
+Lets the party started
+======================
+
+.center[![](images/the_hero.png)]
+
+---
+
+.center[![](images/lego_sm.jpg)]
+
+---
+
+Backprop and differential programming
+=====================================
+
+* How to optimize complex function?
+ `\( \dfrac{df(g(x))}{dx} = \dfrac{df(g)}{dg} * \dfrac{dg(x)}{dx} \)`
+* Programming 2.0
+
+---
+CNN
+===
+
+NN can learn complex features by itself
+
+.center[![](images/cnn_features.png)]
+
+---
+
+## Many other tricks to improve deep network learning
+
+* Dropoff
+* Batch normalization
+* Pretrained models
+* Relu instead of sigmoid
+* Residual networks
+* Allows to mo reliable train very long networks
+
+---
+Autoencoders
+============
+
+---
+Generated faces
+===============
+.center[![](images/generated_faces.jpg)]
+
+---
+Style transfer
+===============
+.center[![](images/style_transfer.jpg)]
+
+---
+Other
+=========
+* Deepdream
+
+
+---
+RNN
+===
+
+* [Image captioning](https://cs.stanford.edu/people/karpathy/deepimagesent/)
+* Automatic translation
+* Generate image by description
+
+
+---
+
+Reinforcement learning
+======================
+The Real Learning
+
+---
+
+Some myphs
+==========
+
+* 'More human, than human' (c)
+* AI
+* Technological singularity
+* Kill all humans
+
+---
+
+Kaggle
+======
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+
+      MathJax.Hub.Configured();
+    </script>
+  </body>
+</html>
+in
