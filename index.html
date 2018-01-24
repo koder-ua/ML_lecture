@@ -329,14 +329,18 @@ XOR solved, backprop
 .center[![](images/nn_xor_solution_sm.jpg)]
 
 ---
+Backprop
+========
 
+* differential programming
+
+---
 MLP
 ===
 
 .center[![](images/mlp_sm.jpg)]
 
 ---
-
 MLP classification boundary
 ===========================
 
@@ -344,6 +348,13 @@ MLP classification boundary
 
 ---
 
+`\( \vec{x_1} = A(\vec{x_0} * \begin{bmatrix} W_{0ij} \end{bmatrix} + \vec{b_0}) \)`
+
+`\( \vec{x_2} = A(\vec{x_1} * \begin{bmatrix} W_{1ij} \end{bmatrix} + \vec{b_1}) \)`
+---
+
+* MLP has too many parameters, most are useless
+* too prone to overfitting
 * Fail on Japan 5th Jen computer
 * Second AI winter
 
