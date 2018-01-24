@@ -23,22 +23,22 @@ Disclamer
 =========
 
 * Not an expert in the field of ML
-* Lecture may contain minor issue
-* Use only as a starting guidance
+* Lecture may contain(minor) issues
+* Use only as a starting guide
+* https://github.com/koder-ua/ML-intro
 
 ---
 
 About and plan
 ==============
 
-* https://github.com/koder-ua/ML-intro
 * Definitions
 * Background, foundations and a bit of philosophy
-* 'Basic' methods overview: KNN/LR/Tree/SVM
+* Shallow models: KNN/LR/Tree/SVM
 * Ensembling
 * xNN (x != K)
 * Current application and future
-* Sources
+* Learning sources
 
 ---
 
@@ -58,7 +58,7 @@ ML applications
 * Medical diagnosis
 * Substances properties prediction
 * Crime detection on video
-* ....
+* Legion, for we are many
 
 ---
 
@@ -100,14 +100,27 @@ Correlation and causation
 
 ## How many correlators you need to change a light bulb?
 
-##Incorrect question - correlators can't change anything.
+## Incorrect question - correlators can't change anything.
 
 ---
 
-#1, 2, 3, ?
+# 1, 1, 1, ?
 
-* 42
+---
+
+# 1, 1, 1, 42
 * How to discriminate models?
+
+---
+
+# 1, 1, 1, 42
+* How to discriminate models?
+
+.center[![](images/popper.jpg)]
+
+---
+
+## All model are incorrect, but some are usefull
 
 ---
 
@@ -125,12 +138,20 @@ Buzzwords
 
 * Classification and extra(inter)polation
 * Loss function
-* Training/test/validation data, hyperparameters
+* hyperparameters
+* Training/test/validation data
+* Overfitting
+---
+
+Overfitting
+===========
+
+.center[![](images/overfitting2.png)]
 
 ---
 
-Model error
-===========
+Prediction error
+================
 
 Error =
 
@@ -157,16 +178,14 @@ KNN-1
 Nearest Neighbors
 =================
 
-    * Too much space
-    * Too slow to predict
-    ....
+* Too much space
+* Too slow to predict
+* ....
 
 ---
 
 Linear/logistic regression
 ==========================
-
-.center[Hight bias / low overfitting / easy to interpret]
 
 `\(y = \vec{w} * \vec{x} + b\)`
 
@@ -174,6 +193,13 @@ Linear/logistic regression
 
 `\(P(y) = \sigma(y) = \dfrac{1}{1 + e^{-y}} \)`
 
+
+---
+
+Linear/logistic regression
+==========================
+
+.center[Hight bias / low overfitting / easy to interpret]
 
 .center[![](images/lr_boundary_linear_sm.png)]
 
@@ -355,6 +381,7 @@ MLP classification boundary
 
 * MLP has too many parameters, most are useless
 * too prone to overfitting
+* too many calculations, too slow computers
 * Fail on Japan 5th Jen computer
 * Second AI winter
 
@@ -435,7 +462,8 @@ Generated faces
 ---
 Style transfer
 ===============
-.center[![](images/style_transfer.jpg)]
+
+.center[![](images/style_transfer.jpeg)]
 
 ---
 Other
@@ -456,22 +484,37 @@ RNN
 
 Reinforcement learning
 ======================
-The Real Learning
+
+* The Real Learning
+* Alpha go zero. 8h of self improving to became the best chess player
+* All our knowledge based on correlations
 
 ---
 
-Some myphs
-==========
+Debunk some myths
+=================
 
-* 'More human, than human' (c)
+* More human than human
 * AI
 * Technological singularity
 * Kill all humans
+* Tesla autopilot
 
 ---
 
 Kaggle
 ======
+
+---
+
+Sources
+
+* [Coursera Andrew NG](https://www.coursera.org/learn/machine-learning)
+* [Stanford cs231n - CNN](http://cs231n.github.io/)
+* [Yandex machine learning(RU)](https://www.youtube.com/playlist?list=PLJOzdkh8T5kp99tGTEFjH_b9zqEQiiBtC)
+* [Probability theory](https://www.youtube.com/playlist?list=PL2SOU6wwxB0uwwH80KTQ6ht66KWxbzTIo)
+
+Look for university cources, edx/coursera are almost all for dumb
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
